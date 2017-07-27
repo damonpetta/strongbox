@@ -18,6 +18,8 @@ jobs:
 
       - run: go build
 
+      - run: go clean
+
       - run:
           name: "Cutting release"
           command: |
