@@ -18,7 +18,7 @@ jobs:
 
       - run: go build
 
-      - type: deploy
+      - run:
           name: "Cutting release"
           command: |
               if [ -n "$CIRCLE_TAG" ]; then
