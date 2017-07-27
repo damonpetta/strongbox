@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.8
+    working_directory: /go/src/github.com/uw-labs/strongbox
+
+    steps:
+      - checkout
+
+      - run:
+          name: Run unit tests
+          command: make test 
+
+      - run: go build
+
+  deployment:
+    tag:
+      tag: /v[0-9]+(\.[0-9]+)*(-.*)*/
+      owner: user
+      command: curl -sL https://git.io/goreleaser | bash
