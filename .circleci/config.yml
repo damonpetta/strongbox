@@ -15,8 +15,13 @@ jobs:
       - run: go build
 
   deployment:
-    fake_deploy_for_cci2:
+    tag:
       tag: /v[0-9]+(\.[0-9]+)*(-.*)*/
-      commands:
-        - echo "test tag"
-        - curl -sL https://git.io/goreleaser | bash
+    docker:
+      - image: circleci/golang:1.8
+    steps:
+      - checkout
+      - run:
+          name: release
+          command: "curl -sL https://git.io/goreleaser | bash"
+
