@@ -11,3 +11,8 @@ builds:
       - amd64
       - arm
       - arm64
+
+release:
+  github:
+    owner: damonpetta
+    name: strongbox
