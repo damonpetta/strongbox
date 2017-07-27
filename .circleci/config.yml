@@ -23,4 +23,6 @@ jobs:
       - run:
           name: "Cutting release"
           command: |
+              if [ -n "$CIRCLE_TAG" ]; then
                 curl -sL https://git.io/goreleaser | bash
+              fi
