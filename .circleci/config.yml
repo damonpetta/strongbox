@@ -15,7 +15,8 @@ jobs:
       - run: go build
 
   deployment:
-    tag:
+    fake_deploy_for_cci2:
       tag: /v[0-9]+(\.[0-9]+)*(-.*)*/
-      owner: user
-      command: curl -sL https://git.io/goreleaser | bash
+      commands:
+        - echo "test tag"
+        - curl -sL https://git.io/goreleaser | bash
