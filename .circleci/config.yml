@@ -1,4 +1,5 @@
 version: 2
+executorType: docker
 jobs:
   build:
     docker:
@@ -6,6 +7,7 @@ jobs:
     working_directory: /go/src/github.com/uw-labs/strongbox
 
     steps:
+      - type: setup-docker-engine
       - checkout
 
       - run:
